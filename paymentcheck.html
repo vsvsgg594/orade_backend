@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="payButton">PAY</button>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    function openRazorpay() {
+    var options = {
+        key: 'rzp_test_hWFjF6n3vDmwo3', // Replace with your Razorpay test Key ID
+        amount: 86780, // Amount should be the same as the one in your backend
+        currency: 'INR',
+        name: 'orado',
+        description: 'Payment for Order',
+        order_id: 'order_PDZmAmgbOmIVSX', // This is the order ID created in your backend
+        handler: function(response) {
+            // Handle payment success
+            console.log(response);
+            // Send response to your backend to verify payment
+        },
+        prefill: {
+            name: 'Customer Name',
+            email: 'customer@example.com',
+            contact: '9999999999'
+        },
+        theme: {
+            color: '#F37254'
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+}
+document.getElementById('payButton').addEventListener('click', openRazorpay);
+</script>
+</html>
+
