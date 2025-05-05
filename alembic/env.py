@@ -12,10 +12,10 @@ config = context.config
 
 
 # Retrieve environment variables for the database connection
-db_user = os.getenv("UNAME")
+db_user = os.getenv("DB_USER")
 db_password = os.getenv("PASSWORD")
-db_host = os.getenv("HOST_REDIS")
-db_port = os.getenv("PORT")
+db_host = os.getenv("DB_HOST")
+db_port = os.getenv("PORT","5432")
 db_name = os.getenv("DBNAME")
 
 # Construct the SQLAlchemy URL
