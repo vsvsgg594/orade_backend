@@ -23,9 +23,9 @@ URL_DATABASE = f'postgresql://{USERNAME}:{PASSWORD}@{HOST}/{DBNAME}' #mysql+pymy
 
 engine = create_engine(URL_DATABASE,pool_size=10, max_overflow=20)
 
-if not database_exists(engine.url):
-    create_database(engine.url)
-    print("Database created successfully!")
+# if not database_exists(engine.url):
+#     create_database(engine.url)
+#     print("Database created successfully!")
 # else:
 #     print("Database already exists.")
 
